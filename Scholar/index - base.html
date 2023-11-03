@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>La Salle Google Academy table</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTable(event, 'Google Scholar')" id="defaultOpen">Google Scholar</button>
+        <button class="tablinks" onclick="openTable(event, 'Scorpus')">Scorpus</button>
+        <button class="tablinks" onclick="openTable(event, 'Research Gate')">Research Gate</button>
+    </div>	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+                    <div id="Google Scholar" class="tabcontent">
+                    <!--START HERE GS-->
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Nombre</th>
+								<th class="column2">Citas</th>
+								<th class="column3">Indice h</th>
+								<th class="column4">Indice i10</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+									<td class="column1">2017-09-29 01:22</td>
+									<td class="column2">200398</td>
+									<td class="column3">iPhone X 64Gb Grey</td>
+									<td class="column4">$999.00</td>
+								</tr>
+						</tbody>
+					</table>
+                    <!--END HERE GS-->
+                    </div>
+                    <div id="Scorpus" class="tabcontent"></div>
+                    <!--START HERE S-->
+                    <!--END HERE S-->
+                    </div>
+                    <div id="Research Gate" class="tabcontent"></div>
+                    <!--START HERE RG-->
+                    <!--END HERE RG-->
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--===============================================================================================-->		
+    <script>
+        function openTable(evt, tableName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tableName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+<!--===============================================================================================-->	
+    <script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+<!--===============================================================================================-->
+	<script>
+		$(document).ready( function () {
+			$('#tableGS').DataTable();
+		} );
+	</script>
+	<script>
+		$(document).ready( function () {
+			$('#tableS').DataTable();
+		} );
+	</script>
+	<script>
+		$(document).ready( function () {
+			$('#tableRG').DataTable();
+		} );
+	</script>
+</body>
+</html>
