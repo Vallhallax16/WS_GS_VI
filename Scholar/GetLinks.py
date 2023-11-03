@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 import requests
 import re
 import Scholar
@@ -54,11 +55,11 @@ def getLinksGS():
 
         for profile in profiles:
             link = profile.findAll('a')
-            nombre = profile.find('h3',attrs={'class':"gsc_oai_name"})
+            nombre = profile.find('h3',attrs={'class':"gs_ai_name"})
             links.append("https://scholar.google.com" + link[0].get('href'))
             nombres.append(nombre.text)
 
-            picture = profile.find('span',attrs={'class':'gs_rimg gsc_pp_sm gsc_1usr_photo'})
+            picture = profile.find('span',attrs={'class':'gs_rimg gs_pp_sm'})
             picture = str(picture)
             imagen = findSrc(picture)
             imagenes.append(imagen)
@@ -67,7 +68,7 @@ def getLinksGS():
         if(cont>=MAXRESULTADOS):
             break
         try:
-            driver.find_element_by_css_selector('button.gs_btnPR.gs_in_ib.gs_btn_half.gs_btn_lsb.gs_btn_srt.gsc_pgn_pnx').click()
+            driver.find_element(By.CSS_SELECTOR,'button.gs_btnPR.gs_in_ib.gs_btn_half.gs_btn_lsb.gs_btn_srt.gsc_pgn_pnx').click()
         except:
             break
     
