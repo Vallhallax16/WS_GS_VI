@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 
 import requests
 import urllib
+import Link_In_Text
 
 s = requests.Session()
 
@@ -32,6 +33,16 @@ def GetInfoGS(url):
 
     perfil = html.find('div',attrs={'id':"gsc_prf_i"})
     prs = perfil.findAll('div')
+
+    text_link = {}
+
+    for div in prs:
+        a = div.findAll('a')
+        link_in_text = Link_In_Text()
+        text_link.append(link_in_text.Extract_Text(str(a)))
+
+    for txt in text_link:
+        print(txt)
 
     cont = 1
     for tr in trs:
