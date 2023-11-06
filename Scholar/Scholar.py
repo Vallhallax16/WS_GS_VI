@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 import requests
 import urllib
-import Link_In_Text
+from Link_In_Text import Link_In_Text
 
 s = requests.Session()
 
@@ -23,8 +23,6 @@ def GetInfoGS(url):
     driver.implicitly_wait(30)
 
     html = BeautifulSoup(driver.page_source, 'lxml')
-    #html = BeautifulSoup(fetch(url), 'html.parser')
-    print(html.prettify())
 
     driver.close()
 
@@ -34,15 +32,13 @@ def GetInfoGS(url):
     perfil = html.find('div',attrs={'id':"gsc_prf_i"})
     prs = perfil.findAll('div')
 
-    text_link = {}
+    text_link = list()
 
     for div in prs:
         a = div.findAll('a')
         link_in_text = Link_In_Text()
-        text_link.append(link_in_text.Extract_Text(str(a)))
-
-    for txt in text_link:
-        print(txt)
+        extracted_text = link_in_text.Extract_Text(str(a))
+        text_link.append(extracted_text)
 
     cont = 1
     for tr in trs:
@@ -56,10 +52,14 @@ def GetInfoGS(url):
             elif cont == 3:
                 indicei10 = numeros[0].text
             cont += 1
-    cont = 1
+    cont = 0
     for pr in prs:
         if cont == 2:
-            universidad = pr.text
+            #universidad = pr.text
+            if(text_link[cont] != None):
+                universidad = text_link[cont]
+            else:
+                universidad = "No data"
         elif cont == 3:
             correo = pr.text
         elif cont == 4:

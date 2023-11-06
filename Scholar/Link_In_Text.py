@@ -18,5 +18,5 @@ class Link_In_Text:
             #
 
             if(start_copy == True and char != ">"):
-                text.__add__(char)
+                text += char
         #

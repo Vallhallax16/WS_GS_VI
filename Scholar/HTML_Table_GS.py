@@ -44,7 +44,8 @@ class HTML_Table_GS:
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column6">{indiceh}</td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column7">{indicei10}</td>\n')
             lines.append('\t\t\t\t\t\t\t\t</tr>\n')
-            i = i + 1
+            i += 1
+
         lines.append('\t\t\t\t\t\t\t</tbody>\n')
         lines.append('\t\t\t\t\t\t</table>\n')
         lines.append('\t\t\t\t\t<!--END HERE GS-->')
