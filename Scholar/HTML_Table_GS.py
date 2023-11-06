@@ -1,6 +1,7 @@
 import csv
 import GetLinks
 import Scholar
+import os
 
 class HTML_Table_GS:
 
@@ -10,10 +11,18 @@ class HTML_Table_GS:
         imagenes = list()
 
         links, nombres, imagenes = GetLinks.getLinksGS()
-        column_names = ['', 'Nombre', 'Universidad', 'Correo', 'Palabras Clave', 'Citas', 'Indice h', 'Indice i10']
+        column_names = ['Nombre', 'Universidad', 'Correo', 'Palabras Clave', 'Citas', 'Indice h', 'Indice i10']
 
-        f = csv.writer(open('data.csv', 'w', newline=''))
-        # f.writerow(['Nombre', 'Citas','Indice h','Indice i10'])
+        f = None
+
+        try:
+            ruta_de_archivo = os.path.abspath("data.csv")
+            os.remove("data.csv")
+            f = csv.writer(open('data.csv', 'w', newline=''))
+        except:
+            f = csv.writer(open('data.csv', 'w', newline=''))
+
+        f.writerow(column_names)
 
         lines = []
         lines.append('<!--START HERE GS-->\n')
@@ -23,19 +32,19 @@ class HTML_Table_GS:
         column = 0
         for name in column_names:
             lines.append(f'\t\t\t\t\t\t\t\t\t<th class="column{column}">{name}</th>\n')
-            column = column + 1
+            column += 1
         lines.append('\t\t\t\t\t\t\t\t</tr>\n')
         lines.append('\t\t\t\t\t\t\t</thead>\n')
         lines.append('\t\t\t\t\t\t<tbody>\n')
+
         i = 0
         for link in links:
             citas, indiceh, indicei10, universidad, correo, palabras = Scholar.GetInfoGS(link)
-            f.writerow([nombres[i], citas, indiceh, indicei10])
+            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10])
             lines.append('\t\t\t\t\t\t\t\t<tr>\n')
             lines.append(
                 f'\t\t\t\t\t\t\t\t\t<td class="column0"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column1">{nombres[i]}</td>\n')
-
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column2">{universidad}</td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column3">{correo}</td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column4">{palabras}</td>\n')
