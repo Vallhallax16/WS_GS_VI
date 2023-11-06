@@ -11,16 +11,16 @@ class HTML_Table_GS:
         imagenes = list()
 
         links, nombres, imagenes = GetLinks.getLinksGS()
-        column_names = ['Nombre', 'Universidad', 'Correo', 'Palabras Clave', 'Citas', 'Indice h', 'Indice i10']
+        column_names = ['Nombre', 'Universidad', 'Correo', 'Palabras Clave', 'Citas', 'Indice h', 'Indice i10','Link a imagen']
 
         f = None
 
         try:
-            ruta_de_archivo = os.path.abspath("data.csv")
-            os.remove("data.csv")
-            f = csv.writer(open('data.csv', 'w', newline=''))
+            ruta_de_archivo = os.path.abspath("dataGS.csv")
+            os.remove("dataGS.csv")
+            f = csv.writer(open('dataGS.csv', 'w', newline=''))
         except:
-            f = csv.writer(open('data.csv', 'w', newline=''))
+            f = csv.writer(open('dataGS.csv', 'w', newline=''))
 
         f.writerow(column_names)
 
@@ -40,7 +40,7 @@ class HTML_Table_GS:
         i = 0
         for link in links:
             citas, indiceh, indicei10, universidad, correo, palabras = Scholar.GetInfoGS(link)
-            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10])
+            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10, imagenes[i]])
             lines.append('\t\t\t\t\t\t\t\t<tr>\n')
             lines.append(
                 f'\t\t\t\t\t\t\t\t\t<td class="column0"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')

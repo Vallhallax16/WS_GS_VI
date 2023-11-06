@@ -33,12 +33,31 @@ def GetInfoGS(url):
     prs = perfil.findAll('div')
 
     text_link = list()
+    palabras_clave = ""
 
     for div in prs:
         a = div.findAll('a')
         link_in_text = Link_In_Text()
-        extracted_text = link_in_text.Extract_Text(str(a))
-        text_link.append(extracted_text)
+
+        if(list(a).__len__() > 1):
+            max_index = list(a).__len__()
+            index = 0
+
+            list_a = list(a)
+            for link in list_a:
+            #
+                extracted_text = link_in_text.Extract_Text(str(link))
+                if(index == 0 or (index + 1) == max_index):
+                    palabras_clave += extracted_text
+                else:
+                    palabras_clave += ", " + extracted_text
+
+                index+= 1
+            #
+            text_link.append(palabras_clave)
+        else:
+            extracted_text = link_in_text.Extract_Text(str(a))
+            text_link.append(extracted_text)
 
     cont = 1
     for tr in trs:
@@ -63,7 +82,7 @@ def GetInfoGS(url):
         elif cont == 3:
             correo = pr.text
         elif cont == 4:
-            palabras = pr.text
+            palabras = palabras_clave
         cont += 1
             
     return citas.strip(),indiceh.strip(),indicei10.strip(),universidad.strip(),correo.strip(),palabras.strip()
