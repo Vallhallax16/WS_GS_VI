@@ -17,7 +17,15 @@ def fetch(url,data = None):
         return s.post(url, data = data).content
 
 def GetInfoGS(url):
-    html = BeautifulSoup(fetch(url), 'html.parser')
+    driver = webdriver.Firefox()
+    driver.get(url)
+    driver.implicitly_wait(30)
+
+    html = BeautifulSoup(driver.page_source, 'lxml')
+    #html = BeautifulSoup(fetch(url), 'html.parser')
+    print(html.prettify())
+
+    driver.close()
 
     tabla = html.find('table',attrs={'id':"gsc_rsb_st"})
     trs = tabla.findAll('tr')
@@ -36,7 +44,7 @@ def GetInfoGS(url):
                 indiceh = numeros[0].text
             elif cont == 3:
                 indicei10 = numeros[0].text
-            cont =  cont + 1
+            cont += 1
     cont = 1
     for pr in prs:
         if cont == 2:
@@ -45,7 +53,7 @@ def GetInfoGS(url):
             correo = pr.text
         elif cont == 4:
             palabras = pr.text
-        cont =  cont + 1
+        cont += 1
             
     return citas.strip(),indiceh.strip(),indicei10.strip(),universidad.strip(),correo.strip(),palabras.strip()
 

@@ -47,8 +47,6 @@ def getLinksGS():
         #html = BeautifulSoup(fetch(url), 'html.parser')
         html = BeautifulSoup(driver.page_source, 'lxml')
 
-        print(html.prettify())
-
         #profiles = html.findAll('div',attrs={'class':"gsc_1usr gs_scl"})
         html.findAll()
         profiles = html.findAll('div', attrs={'class': "gsc_1usr"})
