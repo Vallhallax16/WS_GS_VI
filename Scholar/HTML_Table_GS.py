@@ -9,18 +9,20 @@ class HTML_Table_GS:
         links = list()
         nombres = list()
         imagenes = list()
+        paises = list()
 
         links, nombres, imagenes = GetLinks.getLinksGS()
-        column_names = ['Nombre', 'Universidad', 'Correo', 'Palabras Clave', 'Citas', 'Indice h', 'Indice i10','Link a imagen']
+        column_names = ['Nombre', 'Universidad', 'Correo', 'Palabras Clave', 'Citas', 'Indice h', 'Indice i10','Link a imagen','País']
 
         f = None
 
         try:
             ruta_de_archivo = os.path.abspath("dataGS.csv")
-            os.remove("dataGS.csv")
-            f = csv.writer(open('dataGS.csv', 'w', newline=''))
+            os.remove(ruta_de_archivo)
+
+            f = csv.writer(open(ruta_de_archivo, 'w', newline=''))
         except:
-            f = csv.writer(open('dataGS.csv', 'w', newline=''))
+            f = csv.writer(open(ruta_de_archivo, 'w', newline=''))
 
         f.writerow(column_names)
 
@@ -37,21 +39,25 @@ class HTML_Table_GS:
         lines.append('\t\t\t\t\t\t\t</thead>\n')
         lines.append('\t\t\t\t\t\t<tbody>\n')
 
+        pais = str()
+
         i = 0
         for link in links:
-            citas, indiceh, indicei10, universidad, correo, palabras = Scholar.GetInfoGS(link)
-            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10, imagenes[i]])
+            citas, indiceh, indicei10, universidad, correo, palabras,pais = Scholar.GetInfoGS(link)
+            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10, imagenes[i]],pais)
             lines.append('\t\t\t\t\t\t\t\t<tr>\n')
+            # lines.append(
+            # f'\t\t\t\t\t\t\t\t\t<td class="column0"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')
             lines.append(
-                f'\t\t\t\t\t\t\t\t\t<td class="column0"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column1">{nombres[i]}</td>\n')
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column2">{universidad}</td>\n')
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column3">{correo}</td>\n')
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column4">{palabras}</td>\n')
-
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column5">{citas}</td>\n')
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column6">{indiceh}</td>\n')
-            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column7">{indicei10}</td>\n')
+                f'\t\t\t\t\t\t\t\t\t<td class="column0">{nombres[i]}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column1">{universidad}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column2">{correo}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column3">{palabras}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column4">{citas}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column5">{indiceh}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column6">{indicei10}</td>\n')
+            lines.append(
+                f'\t\t\t\t\t\t\t\t\t<td class="column7"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')
             lines.append('\t\t\t\t\t\t\t\t</tr>\n')
             i += 1
 
