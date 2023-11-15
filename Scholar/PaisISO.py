@@ -1,9 +1,13 @@
+import re
+
 class PaisISO:
     #Regresa una lista con los posibles códigos ISO
     @staticmethod
     def Get_ISO_Pais(correo):
     #
         lista_ISO = list()
+
+        correo = re.sub(" - Página principal","",correo)
 
         separated = correo.split('.')
 

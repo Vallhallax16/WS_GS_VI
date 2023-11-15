@@ -1,4 +1,7 @@
-class Validate_ISO:
+import re
+
+
+class Validar_codigo_ISO:
 
     #Regresa el codigo ISO del país correspondiente, si no lo hay
     #retorna un objeto None
@@ -15,9 +18,9 @@ class Validate_ISO:
         #
             for iso_archivo in ISOs:
             #
-                if(iso.upper() == iso_archivo):
+                if(iso.upper() == re.sub("\n","",iso_archivo)):
                 #
-                    return iso_archivo
+                    return re.sub("\n","",iso_archivo)
                 #
             #
         #

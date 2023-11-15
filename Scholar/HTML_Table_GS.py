@@ -44,7 +44,7 @@ class HTML_Table_GS:
         i = 0
         for link in links:
             citas, indiceh, indicei10, universidad, correo, palabras,pais = Scholar.GetInfoGS(link)
-            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10, imagenes[i]],pais)
+            f.writerow([nombres[i], universidad,correo,palabras,citas, indiceh, indicei10, imagenes[i], pais])
             lines.append('\t\t\t\t\t\t\t\t<tr>\n')
             # lines.append(
             # f'\t\t\t\t\t\t\t\t\t<td class="column0"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')

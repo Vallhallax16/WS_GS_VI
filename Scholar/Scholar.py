@@ -8,6 +8,9 @@ from bs4 import BeautifulSoup
 import requests
 
 from Link_In_Text import Link_In_Text
+from PaisISO import PaisISO
+from Validar_codigo_ISO import Validar_codigo_ISO
+from Search_Place import Search_place
 
 s = requests.Session()
 
@@ -88,15 +91,34 @@ def GetInfoGS(url):
 
     pais_iso = PaisISO()
     lista_isos = PaisISO.Get_ISO_Pais(correo)
-    pais = Validate_ISO.Validar_ISO(lista_isos)
+    pais = Validar_codigo_ISO.Validar_ISO(lista_isos)
 
     if(pais == None):
-        driver = webdriver.Firefox()
-        url = Search_Place.Construct_URL(universidad)
-        driver.get(url)
+        if(universidad != "No data"):
+            driver = webdriver.Firefox()
+            url = Search_place.Construct_URL(universidad)
+            driver.get(url)
+            driver.implicitly_wait(30)
 
+            html = BeautifulSoup(driver.page_source, 'lxml')
+            print(html.prettify())
 
-    return citas.strip(), indiceh.strip(), indicei10.strip(), universidad.strip(), correo.strip(), palabras.strip()
+            driver.close()
+
+            pais = "No data"
+
+            """
+            BUSCAR PLUS CODE
+            </span>
+                         <span class="EmLCAe fontBodyMedium" jstcache="180">
+                          <span jsinstance="*0" jstcache="184">
+                           Carrer de Claravall, Barcelona, España
+                          </span>
+            """
+        else:
+            pais = "No data"
+
+    return citas.strip(), indiceh.strip(), indicei10.strip(), universidad.strip(), correo.strip(), palabras.strip(), pais.strip()
 
 
 def GetInfoS(url):
