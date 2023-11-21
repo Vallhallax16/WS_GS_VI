@@ -111,9 +111,9 @@ def GetInfoGS(url):
 
             pais_parcial = html.find('div',attrs={'class': 'Io6YTe fontBodyMedium kR99db'})
 
-            pais_trozos = re.split(",",pais_parcial)
+            pais_trozos = re.split(",",str(pais_parcial))
 
-
+            pais = Pais_A_ISO.Get_ISO(pais_trozos[pais_trozos.__len__() - 1])
 
             print(partial_plus_code.prettify())
 
