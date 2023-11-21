@@ -1,3 +1,5 @@
+import re
+
 from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
@@ -104,6 +106,16 @@ def GetInfoGS(url):
             print(html.prettify())
 
             driver.close()
+
+            #RegExPLUSCODE = r'[A-Z0-9+]{7,8}'
+
+            pais_parcial = html.find('div',attrs={'class': 'Io6YTe fontBodyMedium kR99db'})
+
+            pais_trozos = re.split(",",pais_parcial)
+
+
+
+            print(partial_plus_code.prettify())
 
             pais = "No data"
 

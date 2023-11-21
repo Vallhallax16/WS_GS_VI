@@ -33,8 +33,9 @@ class HTML_Table_GS:
         lines.append('\t\t\t\t\t\t\t\t<tr class="table100-head">\n')
         column = 0
         for name in column_names:
-            lines.append(f'\t\t\t\t\t\t\t\t\t<th class="column{column}">{name}</th>\n')
-            column += 1
+            if(name != column_names[column_names.__len__()-1]):
+                lines.append(f'\t\t\t\t\t\t\t\t\t<th class="column{column}">{name}</th>\n')
+                column += 1
         lines.append('\t\t\t\t\t\t\t\t</tr>\n')
         lines.append('\t\t\t\t\t\t\t</thead>\n')
         lines.append('\t\t\t\t\t\t<tbody>\n')
