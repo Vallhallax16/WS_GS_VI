@@ -13,6 +13,7 @@ from Link_In_Text import Link_In_Text
 from PaisISO import PaisISO
 from Validar_codigo_ISO import Validar_codigo_ISO
 from Search_Place import Search_place
+from Pais_A_ISO import Pais_A_ISO
 
 s = requests.Session()
 
@@ -100,7 +101,7 @@ def GetInfoGS(url):
             driver = webdriver.Firefox()
             url = Search_place.Construct_URL(universidad)
             driver.get(url)
-            driver.implicitly_wait(30)
+            driver.implicitly_wait(15)
 
             html = BeautifulSoup(driver.page_source, 'lxml')
             print(html.prettify())
@@ -113,25 +114,15 @@ def GetInfoGS(url):
 
             pais_trozos = re.split(",",str(pais_parcial))
 
-            pais = Pais_A_ISO.Get_ISO(pais_trozos[pais_trozos.__len__() - 1])
+            try:
+                pais = Pais_A_ISO.Get_ISO(pais_trozos[pais_trozos.__len__() - 1].replace("</div>", ""))
+            except:
+                pais = "No data"
 
-            print(partial_plus_code.prettify())
-
-            pais = "No data"
-
-            """
-            BUSCAR PLUS CODE
-            </span>
-                         <span class="EmLCAe fontBodyMedium" jstcache="180">
-                          <span jsinstance="*0" jstcache="184">
-                           Carrer de Claravall, Barcelona, España
-                          </span>
-            """
         else:
             pais = "No data"
 
     return citas.strip(), indiceh.strip(), indicei10.strip(), universidad.strip(), correo.strip(), palabras.strip(), pais.strip()
-
 
 def GetInfoS(url):
     html = BeautifulSoup(fetch(url), 'html.parser')

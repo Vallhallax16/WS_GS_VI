@@ -5,6 +5,8 @@ class Pais_A_ISO:
         lineas_iso = str()
         lineas_paises = str()
 
+        N_pais = N_pais.replace(' ','')
+
         with open("Alpha 2 ISO 3661.txt","r",encoding = "utf-8") as txt_ISO:
             lineas_iso = txt_ISO.readlines()
 
@@ -14,9 +16,9 @@ class Pais_A_ISO:
         index = 0
 
         for nomb_pais in lineas_paises:
-            if(nomb_pais != N_pais):
+            if(nomb_pais.replace('\n','') != N_pais):
                 index += 1
             else:
                 break
 
-        return lineas_iso[index]
+        return lineas_iso[index].replace('\n','')

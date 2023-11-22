@@ -9,7 +9,7 @@ import HTML_Table_RG
 import csv
 from html import escape
 import re
-
+"""
 #Inicializacion de clase Table_GS
 table_gs = HTML_Table_GS()
 
@@ -21,6 +21,8 @@ with open('index.html','r',encoding='utf-8') as content_file:
 temp = re.sub('<!--START HERE GS-->.*?<!--END HERE GS-->',googleScholarContent,content, flags=re.DOTALL)
 f = open('index.html','wb')
 f.write(temp.encode('utf-8'))
+"""
+
 
 #----------------------------------------------------------------------------------------------------------------
 #scorpusContent = htmlTableS()

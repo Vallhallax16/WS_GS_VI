@@ -8,7 +8,7 @@ import Scholar
 
 #s = requests.Session()
 
-MAXRESULTADOS = 50
+MAXRESULTADOS = 5
 
 #def fetch(url,data = None):
 #    if data is None:
