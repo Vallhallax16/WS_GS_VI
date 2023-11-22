@@ -23,6 +23,9 @@ f = open('index.html','wb')
 f.write(temp.encode('utf-8'))
 """
 
+from CSV_GS import CSV_GS
+
+CSV_GS.Contar_por_pais()
 
 #----------------------------------------------------------------------------------------------------------------
 #scorpusContent = htmlTableS()
