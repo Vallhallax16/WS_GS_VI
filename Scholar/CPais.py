@@ -14,3 +14,6 @@ class CPais:
 
     def Get_Nombre(self):
         return self.nombre
+
+    def Ipp_Conteo(self):
+        self.conteo += 1

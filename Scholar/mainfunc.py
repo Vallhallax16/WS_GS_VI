@@ -2,14 +2,17 @@
 import GetLinks
 import Scholar
 import HTML_Table_S
-from HTML_Table_GS import HTML_Table_GS
+import csv
+import re
 import HTML_Table_RG
 #Fin del importe de clases
 
-import csv
+#Importes específicos
+from HTML_Table_GS import HTML_Table_GS
+from CSV_GS import CSV_GS
 from html import escape
-import re
-"""
+#Fin de importes específicos
+
 #Inicializacion de clase Table_GS
 table_gs = HTML_Table_GS()
 
@@ -21,9 +24,6 @@ with open('index.html','r',encoding='utf-8') as content_file:
 temp = re.sub('<!--START HERE GS-->.*?<!--END HERE GS-->',googleScholarContent,content, flags=re.DOTALL)
 f = open('index.html','wb')
 f.write(temp.encode('utf-8'))
-"""
-
-from CSV_GS import CSV_GS
 
 CSV_GS.Contar_por_pais()
 
