@@ -8,7 +8,7 @@ import Scholar
 
 #s = requests.Session()
 
-MAXRESULTADOS = 5
+MAXRESULTADOS = 30
 
 #def fetch(url,data = None):
 #    if data is None:
@@ -60,6 +60,7 @@ def getLinksGS():
             picture = profile.find('span',attrs={'class':'gs_rimg gs_pp_sm'})
             picture = str(picture)
             imagen = findSrc(picture)
+            imagen = imagen.replace("&amp;","&")
             imagenes.append(imagen)
 
             cont = cont + 1

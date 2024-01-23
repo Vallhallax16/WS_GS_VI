@@ -27,7 +27,7 @@ def fetch(url, data=None):
 def GetInfoGS(url):
     driver = webdriver.Firefox()
     driver.get(url)
-    driver.implicitly_wait(30)
+    driver.implicitly_wait(15)
 
     html = BeautifulSoup(driver.page_source, 'lxml')
 

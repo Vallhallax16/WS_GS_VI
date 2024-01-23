@@ -49,8 +49,7 @@ class HTML_Table_GS:
             lines.append('\t\t\t\t\t\t\t\t<tr>\n')
             # lines.append(
             # f'\t\t\t\t\t\t\t\t\t<td class="column0"><img alt="{nombres[i]}" sizes="54px" src="https://scholar.google.com{imagenes[i]}" width="54" height="56"></td>\n')
-            lines.append(
-                f'\t\t\t\t\t\t\t\t\t<td class="column0">{nombres[i]}</td>\n')
+            lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column0">{nombres[i]}</td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column1">{universidad}</td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column2">{correo}</td>\n')
             lines.append(f'\t\t\t\t\t\t\t\t\t<td class="column3">{palabras}</td>\n')
