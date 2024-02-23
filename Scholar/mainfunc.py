@@ -13,19 +13,22 @@ from CSV_GS import CSV_GS
 from html import escape
 #Fin de importes específicos
 
-#Inicializacion de clase Table_GS
-table_gs = HTML_Table_GS()
+def Iniciar_WS_GS():
+    # Inicializacion de clase Table_GS
+    """table_gs = HTML_Table_GS()
 
-googleScholarContent = table_gs.htmlTableGS()
+    googleScholarContent = table_gs.htmlTableGS()
 
-with open('index.html','r',encoding='utf-8') as content_file:
-    content = content_file.read()
+    with open('index.html', 'r', encoding='utf-8') as content_file:
+        content = content_file.read()
 
-temp = re.sub('<!--START HERE GS-->.*?<!--END HERE GS-->',googleScholarContent,content, flags=re.DOTALL)
-f = open('index.html','wb')
-f.write(temp.encode('utf-8'))
+    temp = re.sub('<!--START HERE GS-->.*?<!--END HERE GS-->', googleScholarContent, content, flags=re.DOTALL)
+    f = open('index.html', 'wb')
+    f.write(temp.encode('utf-8'))
 
-CSV_GS.Contar_por_pais()
+    CSV_GS.Contar_por_pais()"""
+
+    return True
 
 #----------------------------------------------------------------------------------------------------------------
 #scorpusContent = htmlTableS()

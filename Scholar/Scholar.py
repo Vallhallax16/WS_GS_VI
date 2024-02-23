@@ -17,6 +17,8 @@ from Pais_A_ISO import Pais_A_ISO
 
 s = requests.Session()
 
+MAX_SEGUNDOS = 6
+
 def fetch(url, data=None):
     if data is None:
         return s.get(url).content
@@ -27,14 +29,17 @@ def fetch(url, data=None):
 def GetInfoGS(url):
     driver = webdriver.Firefox()
     driver.get(url)
-    driver.implicitly_wait(15)
+    driver.implicitly_wait(MAX_SEGUNDOS)
 
     html = BeautifulSoup(driver.page_source, 'lxml')
 
     driver.close()
 
-    tabla = html.find('table', attrs={'id': "gsc_rsb_st"})
-    trs = tabla.findAll('tr')
+    try:
+        tabla = html.find('table', attrs={'id': "gsc_rsb_st"})
+        trs = tabla.findAll('tr')
+    except:
+        str_inutil = ""
 
     perfil = html.find('div', attrs={'id': "gsc_prf_i"})
     prs = perfil.findAll('div')
@@ -52,7 +57,7 @@ def GetInfoGS(url):
 
             list_a = list(a)
             for link in list_a:
-                #
+            #
                 extracted_text = link_in_text.Extract_Text(str(link))
                 if (index == 0 or (index + 1) == max_index):
                     palabras_clave += extracted_text
@@ -101,10 +106,10 @@ def GetInfoGS(url):
             driver = webdriver.Firefox()
             url = Search_place.Construct_URL(universidad)
             driver.get(url)
-            driver.implicitly_wait(15)
+            driver.implicitly_wait(MAX_SEGUNDOS)
 
             html = BeautifulSoup(driver.page_source, 'lxml')
-            print(html.prettify())
+            #print(html.prettify())
 
             driver.close()
 

@@ -8,7 +8,9 @@ import Scholar
 
 #s = requests.Session()
 
-MAXRESULTADOS = 30
+#MAXRESULTADOS = 2359
+MAXRESULTADOS = 5
+MAX_SEGUNDOS = 6
 
 #def fetch(url,data = None):
 #    if data is None:
@@ -43,7 +45,7 @@ def getLinksGS():
     cont = 0
 
     while(True):
-        driver.implicitly_wait(30)
+        driver.implicitly_wait(MAX_SEGUNDOS)
         #html = BeautifulSoup(fetch(url), 'html.parser')
         html = BeautifulSoup(driver.page_source, 'lxml')
 
@@ -81,7 +83,7 @@ def getLinksS():
     driver.get(url)
 
     while(True):
-        driver.implicitly_wait(30)
+        driver.implicitly_wait(MAX_SEGUNDOS)
         html = BeautifulSoup(driver.page_source, 'lxml')
 
         profiles = html.find('div',attrs={'id':"srchResultsList"})
@@ -122,7 +124,7 @@ def getLinksS():
     driver = webdriver.Firefox()
     driver.get(url)
 
-    driver.implicitly_wait(30)
+    driver.implicitly_wait(MAX_SEGUNDOS)
     html = BeautifulSoup(driver.page_source, 'lxml')
 
     profiles = html.find('div',attrs={'id':"srchResultsList"})
@@ -161,7 +163,7 @@ def getLinksRG():
     driver.get(url)
 
     while(True):
-        driver.implicitly_wait(30)
+        driver.implicitly_wait(MAX_SEGUNDOS)
         html = BeautifulSoup(driver.page_source, 'lxml')
 
         profiles = html.findAll('div',attrs={'class':"account-container"})
