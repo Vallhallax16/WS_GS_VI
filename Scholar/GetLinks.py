@@ -8,9 +8,9 @@ import Scholar
 
 #s = requests.Session()
 
-#MAXRESULTADOS = 2359
-MAXRESULTADOS = 5
-MAX_SEGUNDOS = 6
+MAXRESULTADOS = 2359
+#MAXRESULTADOS = 5
+MAX_SEGUNDOS = 3
 
 #def fetch(url,data = None):
 #    if data is None:
@@ -46,10 +46,8 @@ def getLinksGS():
 
     while(True):
         driver.implicitly_wait(MAX_SEGUNDOS)
-        #html = BeautifulSoup(fetch(url), 'html.parser')
         html = BeautifulSoup(driver.page_source, 'lxml')
 
-        #profiles = html.findAll('div',attrs={'class':"gsc_1usr gs_scl"})
         html.findAll()
         profiles = html.findAll('div', attrs={'class': "gsc_1usr"})
 

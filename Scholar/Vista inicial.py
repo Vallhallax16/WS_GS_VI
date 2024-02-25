@@ -1,15 +1,18 @@
+"""NOTA IMPORTANTE:
+Sería bueno ordenar to.dos estos códigos en una arquitectura MVC o algo similar
+los vestigios de ello se pueden ver en las carpetas vistas, controladores y
+variables globales, sin embargo Python hace un lio con los directorios y
+habría que invertir un poco de tiempo en arreglarlo"""
+
 import tkinter
-import ctypes
 import math
 
 from win32api import GetSystemMetrics
-from tkinter import *
-from Controladores.Cont_Estado_Web_Scrapper import Obtener_estado
-from Controladores.Cont_Color_estado_web_scrapper import Definir_color_x_edo
-from Controladores.Cont_destruir_ventana import Destruir_ventana
-from Controladores.Cont_Iniciar_WS import Inicializar_WS
-from Variables_globales.Variables_globales import Var_glob
-from Controladores.Cont_Actualizador import Actualizar
+from Cont_Estado_Web_Scrapper import Obtener_estado
+from Cont_Color_estado_web_scrapper import Definir_color_x_edo
+from Cont_destruir_ventana import Destruir_ventana
+from Cont_Iniciar_WS import Inicializar_WS
+from Variables_globales import Var_glob
 
 var_glob = Var_glob()
 var_glob.init()
@@ -58,7 +61,5 @@ marco_lbl_estado.pack(fill= tkinter.BOTH)
 marco_lbl_estado_actual.pack(fill = tkinter.BOTH)
 marco_btn_salir.pack(fill= tkinter.BOTH)
 marco_nota.pack(fill=tkinter.BOTH ,side= tkinter.BOTTOM)
-
-ventana.after(2000,var_glob.set_var(False))
 
 ventana.mainloop()

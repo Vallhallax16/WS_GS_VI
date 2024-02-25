@@ -1,5 +1,3 @@
-from Variables_globales.Variables_globales import Var_glob
-
 class Obtener_estado:
 
     @staticmethod

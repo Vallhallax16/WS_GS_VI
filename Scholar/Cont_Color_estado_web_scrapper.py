@@ -1,5 +1,3 @@
-from Variables_globales.Variables_globales import Var_glob
-
 class Definir_color_x_edo:
 
     @staticmethod

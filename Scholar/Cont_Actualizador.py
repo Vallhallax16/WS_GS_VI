@@ -1,5 +1,5 @@
-from Controladores.Cont_Color_estado_web_scrapper import Definir_color_x_edo
-from Controladores.Cont_Estado_Web_Scrapper import Obtener_estado
+from Cont_Color_estado_web_scrapper import Definir_color_x_edo
+from Cont_Estado_Web_Scrapper import Obtener_estado
 
 import tkinter
 
