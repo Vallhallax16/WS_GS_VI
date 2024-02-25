@@ -17,7 +17,7 @@ from Pais_A_ISO import Pais_A_ISO
 
 s = requests.Session()
 
-MAX_SEGUNDOS = 6
+MAX_SEGUNDOS = 3
 
 def fetch(url, data=None):
     if data is None:

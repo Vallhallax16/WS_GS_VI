@@ -1,10 +1,16 @@
+import sys
+import os
+print (os.getcwd())
+os.chdir("D:\Servicio Social\Web Scrapper\Scholar")
+print (os.getcwd())
+
 #Importe de clases hechas
-import GetLinks
 import Scholar
+import GetLinks
 import HTML_Table_S
 import csv
-import re
 import HTML_Table_RG
+import re
 #Fin del importe de clases
 
 #Importes específicos
@@ -13,22 +19,19 @@ from CSV_GS import CSV_GS
 from html import escape
 #Fin de importes específicos
 
-def Iniciar_WS_GS():
-    # Inicializacion de clase Table_GS
-    """table_gs = HTML_Table_GS()
+# Inicializacion de clase Table_GS
+table_gs = HTML_Table_GS()
 
-    googleScholarContent = table_gs.htmlTableGS()
+googleScholarContent = table_gs.htmlTableGS()
 
-    with open('index.html', 'r', encoding='utf-8') as content_file:
-        content = content_file.read()
+with open('index.html', 'r', encoding='utf-8') as content_file:
+    content = content_file.read()
 
-    temp = re.sub('<!--START HERE GS-->.*?<!--END HERE GS-->', googleScholarContent, content, flags=re.DOTALL)
-    f = open('index.html', 'wb')
-    f.write(temp.encode('utf-8'))
+temp = re.sub('<!--START HERE GS-->.*?<!--END HERE GS-->', googleScholarContent, content, flags=re.DOTALL)
+f = open('index.html', 'wb')
+f.write(temp.encode('utf-8'))
 
-    CSV_GS.Contar_por_pais()"""
-
-    return True
+CSV_GS.Contar_por_pais()
 
 #----------------------------------------------------------------------------------------------------------------
 #scorpusContent = htmlTableS()
