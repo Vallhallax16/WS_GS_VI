@@ -35,6 +35,15 @@ def GetInfoGS(url):
 
     driver.close()
 
+    trs = ""
+    citas = ""
+    indiceh = ""
+    indicei10 = ""
+    universidad = ""
+    correo = ""
+    palabras = ""
+    pais = ""
+
     try:
         tabla = html.find('table', attrs={'id': "gsc_rsb_st"})
         trs = tabla.findAll('tr')

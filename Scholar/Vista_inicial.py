@@ -6,19 +6,21 @@ habría que invertir un poco de tiempo en arreglarlo"""
 
 import tkinter
 import math
+import ctypes
 
-from win32api import GetSystemMetrics
 from Cont_Estado_Web_Scrapper import Obtener_estado
 from Cont_Color_estado_web_scrapper import Definir_color_x_edo
 from Cont_destruir_ventana import Destruir_ventana
 from Cont_Iniciar_WS import Inicializar_WS
 from Variables_globales import Var_glob
 
+sistema = ctypes.windll.user32
+
 var_glob = Var_glob()
 var_glob.init()
 
-dimension_X = GetSystemMetrics(0)//3
-dimension_Y = GetSystemMetrics(1)//3
+dimension_X = sistema.GetSystemMetrics(0)//3
+dimension_Y = sistema.GetSystemMetrics(1)//3
 
 dimensiones = str(dimension_X) + "x" + str(dimension_Y)
 
@@ -62,4 +64,5 @@ marco_lbl_estado_actual.pack(fill = tkinter.BOTH)
 marco_btn_salir.pack(fill= tkinter.BOTH)
 marco_nota.pack(fill=tkinter.BOTH ,side= tkinter.BOTTOM)
 
+ventana.iconbitmap('Icono_WS.ico')
 ventana.mainloop()
