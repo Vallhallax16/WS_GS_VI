@@ -1,62 +1,62 @@
 Andorra
-United Arab Emirates
+United_Arab_Emirates
 Afghanistan
-Antigua and Barbuda
+Antigua_and_Barbuda
 Anguilla
 Albania
 Armenia
-Netherlands Antilles
+Netherlands_Antilles
 Angola
 Antarctica
 Argentina
-American Samoa
+American_Samoa
 Austria
 Australia
 Aruba
 Azerbaijan
 Azerbaijan
-Bosnia and Herzegovina
+Bosnia_and_Herzegovina
 Barbados
 Bangladesh
 Belgium
-Burkina Faso
+Burkina_Faso
 Bulgaria
 Bahrain
 Burundi
 Benin
-Saint Barthelemy
+Saint_Barthelemy
 Bermuda
 Brunei
 Bolivia
 Brazil
 Bahamas
 Bhutan
-Bouvet Island
+Bouvet_Island
 Botswana
 Belarus
 Belize
 Canada
-Cocos Islands
-Central African Republic
+Cocos_Islands
+Central_African_Republic
 Congo
 Switzerland
-Cote d Ivoire
-Cook Islands
+Cote_d_Ivoire
+Cook_Islands
 Chile
 Cameroon
 China
 Colombia
-Costa Rica
+Costa_Rica
 Cuba
-Cape Verde
-Christmas Islands
+Cape_Verde
+Christmas_Islands
 Cyprus
-Czech Republic
+Czech_Republic
 Germany
 Djibouti
 Denmark
 Dominica
-Dominican Republic
+Dominican_Republic
 Algiers
 Ecuador
 Estonia
@@ -67,15 +67,15 @@ Spain
 Ethiopia
 Finland
 Fiji
-Falkland Islands
+Falkland_Islands
 Micronesia
-Faroe Islands
+Faroe_Islands
 France
 Gabon
 Grenada
 Grenada
 Georgia
-French Guiana
+French_Guiana
 Guernsey
 Ghana
 Gibraltar
@@ -83,15 +83,15 @@ Greenland
 Gambia
 Guinea
 Guadeloupe
-Equatorial Guinea
+Equatorial_Guinea
 Greece
-South Georgia and South Sandwich Islands
+South_Georgia_and_South_Sandwich_Islands
 Guatemala
 Guam
 Guinea-Bissau
 Guyana
-Hong Kong
-Heard and McDonald Islands
+Hong_Kong
+Heard_and_McDonald_Islands
 Honduras
 Croatia
 Haiti
@@ -99,9 +99,9 @@ Hungary
 Indonesia
 Ireland
 Israel
-Isle of Man
+Isle_of_Man
 India
-British Indian Ocean Territory
+British_Indian_Ocean_Territory
 Iraq
 Iran
 Iceland
@@ -115,17 +115,17 @@ Kyrgyzstan
 Cambodia
 Kiribati
 Comoros
-Saint Kitts and Nevis
-North Korea
-South Korea
+Saint_Kitts_and_Nevis
+North_Korea
+South_Korea
 Kuwait
-Cayman Islands
+Cayman_Islands
 Kazakhstan
 Laos
 Lebanon
-Saint Lucia
+Saint_Lucia
 Liechtenstein
-Sri Lanka
+Sri_Lanka
 Liberia
 Lesotho
 Lithuania
@@ -137,7 +137,7 @@ Monaco
 Moldova
 Montenegro
 Madagascar
-Marshall Islands
+Marshall_Islands
 Macedonia
 Mali
 Myanmar
@@ -154,9 +154,9 @@ Mexico
 Malaysia
 Mozambique
 Namibia
-New Caledonia
+New_Caledonia
 Niger
-Norfolk Islands
+Norfolk_Islands
 Nigeria
 Nicaragua
 Netherlands
@@ -164,50 +164,50 @@ Norway
 Nepal
 Nauru
 Niue
-New Zealand
+New_Zealand
 Oman
 Panama
 Peru
-French Polynesia
-Papua New Guinea
+French_Polynesia
+Papua_New_Guinea
 Philippines
 Pakistan
 Poland
-Saint Pierre and Miquelon
-Pitcairn Islands
-Puerto Rico
+Saint_Pierre_and_Miquelon
+Pitcairn_Islands
+Puerto_Rico
 Palestine
 Portugal
-Palau Islands
+Palau_Islands
 Paraguay
 Qatar
 Reunion
 Romania
-Serbia and Montenegro
+Serbia_and_Montenegro
 Russia
 Rwanda
-Saudi Arabia
-Solomon Islands
+Saudi_Arabia
+Solomon_Islands
 Seychelles
 Sudan
 Sweden
 Singapore
-St. Helena
+St._Helena
 Slovenia
-Svalbard and Jan Mayen Islands
+Svalbard_and_Jan_Mayen_Islands
 Slovakia
-Sierra Leone
-San Marino
+Sierra_Leone
+San_Marino
 Senegal
 Somalia
 Suriname
-Sao Tome and Principe
-El Salvador
+Sao_Tome_and_Principe
+El_Salvador
 Syria
 Swaziland
-Turks and Caicos Islands
+Turks_and_Caicos_Islands
 Chad
-French Southern Territories
+French_Southern_Territories
 Togo
 Thailand
 Tanzania
@@ -218,23 +218,24 @@ Turkmenistan
 Tunisia
 Tonga
 Turkey
-Trinidad and Tobago
+Trinidad_and_Tobago
 Tuvalu
 Taiwan
 Ukraine
+United_Kingdom
 Uganda
-United States of America
+United_States
 Uruguay
 Uzbekistan
-Saint Vincent and the Grenadines
-Saint Vincent and the Grenadines
+Saint_Vincent_and_the_Grenadines
+Saint_Vincent_and_the_Grenadines
 Venezuela
-Virgin Islands, British Virgin Islands
-Virgin Islands, United States of America
+Virgin_Islands,_British_Virgin_Islands
+Virgin_Islands,_United_States_of_America
 Vietnam
 Vanuatu
-Wallis and Futuna
+Wallis_and_Futuna
 Samoa
 Yemen
 Mayotte
-South Africa
+South_Africa

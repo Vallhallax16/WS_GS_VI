@@ -14,10 +14,11 @@ from PaisISO import PaisISO
 from Validar_codigo_ISO import Validar_codigo_ISO
 from Search_Place import Search_place
 from Pais_A_ISO import Pais_A_ISO
+from CCamel_Case import Formato_camello
 
 s = requests.Session()
 
-MAX_SEGUNDOS = 3
+MAX_SEGUNDOS = 5
 
 def fetch(url, data=None):
     if data is None:
@@ -44,6 +45,8 @@ def GetInfoGS(url):
     palabras = ""
     pais = ""
 
+    formateo_camello = Formato_camello()
+
     try:
         tabla = html.find('table', attrs={'id': "gsc_rsb_st"})
         trs = tabla.findAll('tr')
@@ -68,10 +71,11 @@ def GetInfoGS(url):
             for link in list_a:
             #
                 extracted_text = link_in_text.Extract_Text(str(link))
-                if (index == 0 or (index + 1) == max_index):
-                    palabras_clave += extracted_text
+                #if (index == 0 or (index + 1) == max_index):
+                if (index == 0):
+                    palabras_clave += formateo_camello.Formateo_escaso(extracted_text)
                 else:
-                    palabras_clave += ", " + extracted_text
+                    palabras_clave += ", " + formateo_camello.Formateo_escaso(extracted_text)
 
                 index += 1
             #
@@ -98,8 +102,11 @@ def GetInfoGS(url):
             # universidad = pr.text
             if (text_link[cont] != None):
                 universidad = text_link[cont]
+            elif pr.text != "":
+                #universidad = "S/D"
+                universidad = pr.text
             else:
-                universidad = "No data"
+                universidad = "S/D"
         elif cont == 3:
             correo = pr.text
         elif cont == 4:
@@ -111,7 +118,7 @@ def GetInfoGS(url):
     pais = Validar_codigo_ISO.Validar_ISO(lista_isos)
 
     if(pais == None):
-        if(universidad != "No data"):
+        if(universidad != "S/D"):
             driver = webdriver.Firefox()
             url = Search_place.Construct_URL(universidad)
             driver.get(url)
@@ -126,15 +133,22 @@ def GetInfoGS(url):
 
             pais_parcial = html.find('div',attrs={'class': 'Io6YTe fontBodyMedium kR99db'})
 
-            pais_trozos = re.split(",",str(pais_parcial))
+            if(pais_parcial != None):
+            #
+                pais_trozos = re.split(",", str(pais_parcial))
 
-            try:
-                pais = Pais_A_ISO.Get_ISO(pais_trozos[pais_trozos.__len__() - 1].replace("</div>", ""))
-            except:
-                pais = "No data"
+                try:
+                    pais = Pais_A_ISO.Get_ISO(pais_trozos[pais_trozos.__len__() - 1].replace("</div>", ""))
+                except:
+                    pais = "S/D"
+            #
+            else:
+            #
+                pais = "S/D"
+            #
 
         else:
-            pais = "No data"
+            pais = "S/D"
 
     return citas.strip(), indiceh.strip(), indicei10.strip(), universidad.strip(), correo.strip(), palabras.strip(), pais.strip()
 

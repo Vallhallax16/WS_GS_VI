@@ -8,9 +8,9 @@ import Scholar
 
 #s = requests.Session()
 
-MAXRESULTADOS = 2359
-#MAXRESULTADOS = 5
-MAX_SEGUNDOS = 3
+#MAXRESULTADOS = 2359
+MAXRESULTADOS = 30
+MAX_SEGUNDOS = 6
 
 #def fetch(url,data = None):
 #    if data is None:
@@ -39,7 +39,8 @@ def getLinksGS():
     links = list()
     nombres = list()
     imagenes = list()
-    url = 'https://scholar.google.com/citations?view_op=search_authors&mauthors=la+salle&hl=es&oi=drw'
+    #url = 'https://scholar.google.com/citations?view_op=search_authors&mauthors=la+salle&hl=es&oi=drw'
+    url = 'https://scholar.google.com/citations?view_op=search_authors&hl=es&mauthors=La+salle&after_author=AVEVAPj3__8J&astart=60'
     driver = webdriver.Firefox()
     driver.get(url)
     cont = 0
