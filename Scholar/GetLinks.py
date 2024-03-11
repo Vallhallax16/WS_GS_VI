@@ -9,7 +9,7 @@ import Scholar
 #s = requests.Session()
 
 #MAXRESULTADOS = 2359
-MAXRESULTADOS = 30
+MAXRESULTADOS = 15
 MAX_SEGUNDOS = 6
 
 #def fetch(url,data = None):

@@ -82,6 +82,16 @@ def GetInfoGS(url):
             text_link.append(palabras_clave)
         else:
             extracted_text = link_in_text.Extract_Text(str(a))
+
+            """if(extracted_text == None or extracted_text == ""):
+            #
+                text_link.append("S/D")
+            #
+            else:
+            #
+                text_link.append(extracted_text)
+            #
+            """
             text_link.append(extracted_text)
 
     cont = 1
@@ -110,7 +120,17 @@ def GetInfoGS(url):
         elif cont == 3:
             correo = pr.text
         elif cont == 4:
-            palabras = palabras_clave
+        #
+            if(palabras_clave != ""):
+            #
+                palabras = palabras_clave
+            #
+            else:
+            #
+                palabras = "S/D"
+            #
+
+        #
         cont += 1
 
     pais_iso = PaisISO()
